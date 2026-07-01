@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GIFT AIエージェント カタログ｜中小企業向け 業種別ソリューション</title>
+<style>
+  :root{
+    --bg:#f5f4ee; --card:#fff; --ink:#1c1c19; --muted:#67665f; --line:#e6e3da;
+    --navy:#1a2e4a; --navy2:#0e2138; --navy-bg:#e8edf5;
+    --gold:#a07b1c; --gold2:#8a6613; --gold-bg:#faf0d7;
+    --green:#2d7a5f; --green-bg:#dff0e8;
+    --line-brand:#06c755;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--ink);line-height:1.75;
+    font-family:-apple-system,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px 40px;}
+
+  /* ===== Hero ===== */
+  .hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);color:#fff;padding:56px 22px 60px;margin-bottom:0;}
+  .hero-inner{max-width:1080px;margin:0 auto;}
+  .brand-mark{font-weight:800;letter-spacing:3px;font-size:13px;color:var(--gold-bg);}
+  .brand-mark .pipe{color:rgba(255,255,255,.35);margin:0 10px;}
+  h1{font-size:34px;font-weight:800;margin-top:14px;line-height:1.4;}
+  h1 .accent{color:#ffd97a;}
+  .hero-lead{color:rgba(255,255,255,.85);font-size:15.5px;margin-top:14px;max-width:720px;line-height:1.85;}
+  .hero-cta{display:inline-flex;align-items:center;gap:9px;background:var(--line-brand);color:#fff;text-decoration:none;
+    padding:14px 26px;border-radius:11px;font-weight:800;font-size:15px;margin-top:24px;
+    box-shadow:0 6px 18px rgba(6,199,85,.35);transition:transform .2s;}
+  .hero-cta:hover{transform:translateY(-2px);}
+  .hero-cta .ic{width:20px;height:20px;background:#fff;color:var(--line-brand);border-radius:50%;
+    display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;}
+  .hero-note{color:rgba(255,255,255,.55);font-size:12px;margin-top:10px;}
+
+  /* ===== Section common ===== */
+  h2{font-size:22px;font-weight:800;margin:0 0 8px;color:var(--navy);}
+  .section-lead{color:var(--muted);font-size:14px;margin-bottom:18px;}
+
+  /* ===== Industry nav ===== */
+  .nav-title{margin-top:40px;font-size:14px;font-weight:800;color:var(--gold);letter-spacing:2px;}
+  .nav-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-top:10px;}
+  .nav-card{display:block;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);
+    border-radius:11px;padding:12px 14px;border-left:5px solid var(--navy);transition:all .18s;}
+  .nav-card:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(0,0,0,.07);}
+  .nav-card .num{font-size:11px;font-weight:800;color:var(--gold);letter-spacing:2px;}
+  .nav-card .name{font-weight:700;font-size:14.5px;margin-top:3px;}
+  .nav-card .top{font-size:12px;color:var(--muted);margin-top:3px;}
+
+  /* ===== Industry sections ===== */
+  .industry{margin-top:56px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 28px;
+    border-top:6px solid var(--navy);}
+  .industry .ind-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:6px;}
+  .industry .ind-badge{display:inline-block;color:#fff;background:var(--navy);font-weight:800;
+    font-size:11px;padding:4px 11px;border-radius:6px;letter-spacing:2px;}
+  .industry h3.ind-name{font-size:22px;font-weight:800;color:var(--navy);}
+  .industry .ind-target{color:var(--muted);font-size:13px;margin-top:3px;}
+
+  .pain-strip{background:#fdfcf9;border-left:3px solid var(--gold);border-radius:0 9px 9px 0;
+    padding:11px 15px;margin-top:16px;font-size:13.5px;}
+  .pain-strip b{color:var(--navy);}
+  .pain-strip .stat{display:inline-block;background:var(--gold-bg);color:var(--gold2);font-size:11.5px;font-weight:700;
+    padding:2px 8px;border-radius:5px;margin:3px 4px 0 0;}
+
+  .agents{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px;}
+  @media (max-width:720px){.agents{grid-template-columns:1fr;}}
+  .agent{background:#fdfcf9;border:1px solid var(--line);border-radius:11px;padding:15px 17px;}
+  .agent .num{font-size:10.5px;font-weight:800;color:var(--gold);letter-spacing:2px;}
+  .agent h4{font-size:14.5px;font-weight:800;margin-top:2px;line-height:1.5;}
+  .agent .io{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;margin-top:9px;font-size:12.5px;}
+  .agent .io dt{color:var(--muted);font-weight:700;font-size:11px;padding-top:2px;}
+  .agent .io dd{margin:0;}
+  .agent .effect{margin-top:9px;background:var(--navy-bg);border-radius:7px;padding:7px 11px;font-size:12.5px;color:var(--navy);}
+  .agent .effect b{color:var(--navy);}
+
+  .ind-cta{margin-top:22px;background:var(--gold-bg);border-radius:11px;padding:14px 18px;
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+  .ind-cta .msg{flex:1;min-width:220px;font-size:13.5px;color:#5b3f07;}
+  .ind-cta .msg b{color:var(--gold2);}
+  .ind-cta a{display:inline-flex;align-items:center;gap:7px;background:var(--line-brand);color:#fff;
+    text-decoration:none;padding:10px 18px;border-radius:9px;font-weight:800;font-size:13.5px;}
+
+  .top-link{display:inline-block;font-size:11.5px;color:var(--muted);text-decoration:none;margin-top:14px;}
+  .top-link:hover{color:var(--navy);}
+
+  /* ===== Footer / About ===== */
+  .about{margin-top:56px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px 26px;}
+  .about h2{color:var(--navy);}
+  .about p{font-size:14px;margin-top:8px;}
+  .about ul{margin-top:8px;padding-left:22px;}
+  .about li{font-size:13.5px;margin:4px 0;}
+
+  .final-cta{margin-top:30px;background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);color:#fff;
+    border-radius:14px;padding:28px 30px;text-align:center;}
+  .final-cta h3{font-size:20px;font-weight:800;}
+  .final-cta p{color:rgba(255,255,255,.85);font-size:14px;margin-top:8px;}
+  .final-cta a{display:inline-flex;align-items:center;gap:9px;background:var(--line-brand);color:#fff;
+    text-decoration:none;padding:14px 30px;border-radius:11px;font-weight:800;font-size:15px;margin-top:16px;
+    box-shadow:0 6px 18px rgba(6,199,85,.4);}
+
+  footer{margin-top:26px;text-align:center;color:var(--muted);font-size:12px;padding-bottom:24px;}
+
+  /* Industry color themes */
+  [data-c="shigyou"]{border-top-color:#1a2e4a;} [data-c="shigyou"] .ind-badge{background:#1a2e4a;} [data-c="shigyou"] h3.ind-name{color:#1a2e4a;}
+  [data-c="kenchiku"]{border-top-color:#c25b1a;} [data-c="kenchiku"] .ind-badge{background:#c25b1a;} [data-c="kenchiku"] h3.ind-name{color:#c25b1a;}
+  [data-c="seizo"]{border-top-color:#4a5560;} [data-c="seizo"] .ind-badge{background:#4a5560;} [data-c="seizo"] h3.ind-name{color:#4a5560;}
+  [data-c="kouri"]{border-top-color:#b03030;} [data-c="kouri"] .ind-badge{background:#b03030;} [data-c="kouri"] h3.ind-name{color:#b03030;}
+  [data-c="iryou"]{border-top-color:#2d7a5f;} [data-c="iryou"] .ind-badge{background:#2d7a5f;} [data-c="iryou"] h3.ind-name{color:#2d7a5f;}
+  [data-c="unyu"]{border-top-color:#185fa5;} [data-c="unyu"] .ind-badge{background:#185fa5;} [data-c="unyu"] h3.ind-name{color:#185fa5;}
+  [data-c="it"]{border-top-color:#534ab7;} [data-c="it"] .ind-badge{background:#534ab7;} [data-c="it"] h3.ind-name{color:#534ab7;}
+  [data-c="shukuhaku"]{border-top-color:#1c8c8c;} [data-c="shukuhaku"] .ind-badge{background:#1c8c8c;} [data-c="shukuhaku"] h3.ind-name{color:#1c8c8c;}
+  [data-c="kyouiku"]{border-top-color:#a07b1c;} [data-c="kyouiku"] .ind-badge{background:#a07b1c;} [data-c="kyouiku"] h3.ind-name{color:#a07b1c;}
+  [data-c="biyou"]{border-top-color:#b04a7c;} [data-c="biyou"] .ind-badge{background:#b04a7c;} [data-c="biyou"] h3.ind-name{color:#b04a7c;}
+  [data-c="koukoku"]{border-top-color:#8a3a6e;} [data-c="koukoku"] .ind-badge{background:#8a3a6e;} [data-c="koukoku"] h3.ind-name{color:#8a3a6e;}
+  [data-c="shougaifukushi"]{border-top-color:#4d8a8a;} [data-c="shougaifukushi"] .ind-badge{background:#4d8a8a;} [data-c="shougaifukushi"] h3.ind-name{color:#4d8a8a;}
+  .nav-card[data-c="shigyou"]{border-left-color:#1a2e4a;}
+  .nav-card[data-c="kenchiku"]{border-left-color:#c25b1a;}
+  .nav-card[data-c="seizo"]{border-left-color:#4a5560;}
+  .nav-card[data-c="kouri"]{border-left-color:#b03030;}
+  .nav-card[data-c="iryou"]{border-left-color:#2d7a5f;}
+  .nav-card[data-c="unyu"]{border-left-color:#185fa5;}
+  .nav-card[data-c="it"]{border-left-color:#534ab7;}
+  .nav-card[data-c="shukuhaku"]{border-left-color:#1c8c8c;}
+  .nav-card[data-c="kyouiku"]{border-left-color:#a07b1c;}
+  .nav-card[data-c="biyou"]{border-left-color:#b04a7c;}
+  .nav-card[data-c="koukoku"]{border-left-color:#8a3a6e;}
+  .nav-card[data-c="shougaifukushi"]{border-left-color:#4d8a8a;}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div class="brand-mark">GIFT<span class="pipe">|</span>AI AGENT CATALOG</div>
+    <h1>あなたの業務が、明日から動き出す。<br><span class="accent">中小企業向け AIエージェント カタログ</span></h1>
+    <p class="hero-lead">
+      現場のペインから逆算した、業種別のAIエージェントを一覧化しました。
+      口コミ返信を代筆する、問い合わせに即答する、見積を数分で作る、報告書を自動で書く ——
+      「明日から効く」現場改善を、12業種・60本のエージェントでご用意しています。
+      気になったエージェントは、60分の説明会で実物をお見せします。
+    </p>
+    <a href="#final-cta" class="hero-cta"><span class="ic">L</span>LINEで60分説明会を申し込む</a>
+    <div class="hero-note">※お申込みは無料。オンラインで完結します。</div>
+  </div>
+</section>
+
+<div class="wrap">
+
+  <!-- ===== 業種ナビ ===== -->
+  <div class="nav-title">▼ あなたの業種を選ぶ（12業種）</div>
+  <div class="nav-cards">
+    <a class="nav-card" data-c="shigyou" href="#shigyou"><div class="num">01</div><div class="name">士業・コンサル</div><div class="top">税理士・社労士・会計士</div></a>
+    <a class="nav-card" data-c="kenchiku" href="#kenchiku"><div class="num">02</div><div class="name">建設・不動産</div><div class="top">工務店・仲介・専門工事</div></a>
+    <a class="nav-card" data-c="seizo" href="#seizo"><div class="num">03</div><div class="name">製造・卸売</div><div class="top">町工場・食品加工・地場卸</div></a>
+    <a class="nav-card" data-c="kouri" href="#kouri"><div class="num">04</div><div class="name">小売・飲食</div><div class="top">スーパー・カフェ・多店舗</div></a>
+    <a class="nav-card" data-c="iryou" href="#iryou"><div class="num">05</div><div class="name">医療・介護</div><div class="top">診療所・歯科・訪問介護</div></a>
+    <a class="nav-card" data-c="unyu" href="#unyu"><div class="num">06</div><div class="name">運輸・物流</div><div class="top">トラック運送・倉庫・3PL</div></a>
+    <a class="nav-card" data-c="it" href="#it"><div class="num">07</div><div class="name">IT・サービス</div><div class="top">受託開発・SES・Web制作</div></a>
+    <a class="nav-card" data-c="shukuhaku" href="#shukuhaku"><div class="num">08</div><div class="name">宿泊・観光</div><div class="top">旅館・ホテル・観光</div></a>
+    <a class="nav-card" data-c="kyouiku" href="#kyouiku"><div class="num">09</div><div class="name">教育・学習塾</div><div class="top">学習塾・英会話・個別指導</div></a>
+    <a class="nav-card" data-c="biyou" href="#biyou"><div class="num">10</div><div class="name">美容・理美容</div><div class="top">サロン・エステ・多店舗</div></a>
+    <a class="nav-card" data-c="koukoku" href="#koukoku"><div class="num">11</div><div class="name">広告・PR・印刷</div><div class="top">代理店・印刷・制作</div></a>
+    <a class="nav-card" data-c="shougaifukushi" href="#shougaifukushi"><div class="num">12</div><div class="name">障害福祉</div><div class="top">GH・就労B型・放デイ</div></a>
+  </div>
+
+  <!-- ============ 01 士業 ============ -->
+  <section class="industry" data-c="shigyou" id="shigyou">
+    <div class="ind-head"><span class="ind-badge">01 / SHIGYOU</span><h3 class="ind-name">士業・コンサル</h3></div>
+    <div class="ind-target">税理士・社労士・公認会計士 ／ 1〜20名規模の事務所</div>
+    <div class="pain-strip">
+      <b>業界背景：</b>年末調整→確定申告→3月決算法人申告と続く<b>7ヶ月の長期繁忙期</b>。インボイス・電帳法で顧問先からの質問が爆増（中小企業の82.2%が事務負担増を実感）。所長は月20時間以上を「即答質問への返信」に取られている。
+      <div><span class="stat">残業 月50〜60h</span><span class="stat">顧問先82.2%が質問頻発</span><span class="stat">有効求人倍率2.31倍</span></div>
+    </div>
+    <div class="agents">
+      <div class="agent"><div class="num">AGENT 01</div><h4>即答質問オートレスポンダー</h4>
+        <dl class="io"><dt>入力</dt><dd>顧問先からのメール／LINE／Chatwork質問</dd><dt>出力</dt><dd>事務所トーンの返信下書き＋根拠条文</dd></dl>
+        <div class="effect"><b>期待効果：</b>「これって経費？」「電帳法どこまで？」への回答が即・自動生成。夜の返信残業が消える。</div></div>
+      <div class="agent"><div class="num">AGENT 02</div><h4>顧問先業種別 補助金レコメンド</h4>
+        <dl class="io"><dt>入力</dt><dd>顧問先リスト（業種・規模・投資計画）</dd><dt>出力</dt><dd>「今月使える補助金トップ3」を月初配信</dd></dl>
+        <div class="effect"><b>期待効果：</b>顧問料upと離反防止の両方に効く「提案できる税理士」に。</div></div>
+      <div class="agent"><div class="num">AGENT 03</div><h4>法改正 顧問先別 解説書ジェネレーター</h4>
+        <dl class="io"><dt>入力</dt><dd>顧問先の属性（業種・規模・課税方式）</dd><dt>出力</dt><dd>改正の影響と対応をA4 1枚で自動作成</dd></dl>
+        <div class="effect"><b>期待効果：</b>改正のたびに深夜まで手書きしていた案内文が数分で完成。</div></div>
+      <div class="agent"><div class="num">AGENT 04</div><h4>新規受任 プロセス自動化</h4>
+        <dl class="io"><dt>入力</dt><dd>問い合わせフォーム＋初回面談録音</dd><dt>出力</dt><dd>顧問先カルテ／見積／契約書ドラフト</dd></dl>
+        <div class="effect"><b>期待効果：</b>繁忙期に止まりがちな新規受任を、所長が動かず進められる。</div></div>
+      <div class="agent"><div class="num">AGENT 05</div><h4>新人OJT AIメンター</h4>
+        <dl class="io"><dt>入力</dt><dd>新人が入力した仕訳・申告書・返信ドラフト</dd><dt>出力</dt><dd>所長スタイルでの添削＋週次レポート</dd></dl>
+        <div class="effect"><b>期待効果：</b>採用難時代に「所長が育成に張り付かない」体制を実現。</div></div>
+    </div>
+    <div class="ind-cta"><div class="msg"><b>気になったエージェントはありましたか？</b><br>60分の説明会で、実物のデモとあなたの事務所での使い方をご案内します。</div><a href="#final-cta">LINEで申し込む →</a></div>
+    <a class="top-link" href="#top">▲ 業種ナビに戻る</a>
+  </section>
+
+  <!-- ============ 02 建設・不動産 ============ -->
+  <section class="industry" data-c="kenchiku" id="kenchiku">
+    <div class="ind-head"><span class="ind-badge">02 / KENCHIKU</span><h3 class="ind-name">建設・不動産</h3></div>
+    <div class="ind-target">地場ゼネコン・工務店・専門工事・地域不動産仲介／管理 ／ 1〜30名規模</div>
+    <div class="pain-strip">
+      <b>業界背景：</b>2024年問題＋2025年12月完全施行の改正建設業法で、書面業務が急増。経営者の<b>50%が毎日2時間以上を事務作業</b>に費やし、日程・工程管理の56%は紙／ホワイトボードのまま。積算・重説・現場報告に「書ける人」が足りない。
+      <div><span class="stat">経営者50%が毎日2h以上を事務</span><span class="stat">工程管理56%が紙</span><span class="stat">若手11.7%（29歳以下）</span></div>
+    </div>
+    <div class="agents">
+      <div class="agent"><div class="num">AGENT 06</div><h4>AI見積・積算アシスタント</h4>
+        <dl class="io"><dt>入力</dt><dd>PDF平面図＋過去の単価マスタ</dd><dt>出力</dt><dd>数量拾い表＋見積書（改正法対応フォーマット）</dd></dl>
+        <div class="effect"><b>期待効果：</b>夜中まで積算していた作業が5〜10分に。「入札できる案件が増える」。</div></div>
+      <div class="agent"><div class="num">AGENT 07</div><h4>重説・契約書類ドラフトAI</h4>
+        <dl class="io"><dt>入力</dt><dd>物件情報＋登記情報＋契約条件</dd><dt>出力</dt><dd>重要事項説明書＋契約書＋特約案</dd></dl>
+        <div class="effect"><b>期待効果：</b>1件240分の作業が10分に。宅建士は最終チェックだけで済む。</div></div>
+      <div class="agent"><div class="num">AGENT 08</div><h4>現場日報＆施工写真AIまとめ</h4>
+        <dl class="io"><dt>入力</dt><dd>職人からのLINE写真・音声メモ</dd><dt>出力</dt><dd>日次／週次レポート＋発注書ドラフト</dd></dl>
+        <div class="effect"><b>期待効果：</b>紙／LINE／電話に散らばる現場情報が、元請報告の形式に整う。</div></div>
+      <div class="agent"><div class="num">AGENT 09</div><h4>物件問い合わせ 24時間自動対応</h4>
+        <dl class="io"><dt>入力</dt><dd>SUUMO／HOME'Sからの問い合わせ</dd><dt>出力</dt><dd>一次返信＋内見候補日3案＋社内引継ぎ</dd></dl>
+        <div class="effect"><b>期待効果：</b>夜間・休日の取りこぼしゼロ。SUUMO広告費が「効く」ようになる。</div></div>
+      <div class="agent"><div class="num">AGENT 10</div><h4>補助金＆改正法対応チェックAI</h4>
+        <dl class="io"><dt>入力</dt><dd>会社規模＋導入したい設備</dd><dt>出力</dt><dd>使える補助金の適合度＋改正法チェックリスト</dd></dl>
+        <div class="effect"><b>期待効果：</b>「使えるのに知らなかった」補助金と、法対応の抜けを同時に解消。</div></div>
+    </div>
+    <div class="ind-cta"><div class="msg"><b>気になったエージェントはありましたか？</b><br>60分の説明会で、実物のデモとあなたの現場での使い方をご案内します。</div><a href="#final-cta">LINEで申し込む →</a></div>
+    <a class="top-link" href="#top">▲ 業種ナビに戻る</a>
+  </section>
+
+  <!-- ============ 03 製造・卸売 ============ -->
+  <section class="industry" data-c="seizo" id="seizo">
+    <div class="ind-head"><span class="ind-badge">03 / SEIZO</span><h3 class="ind-name">製造・卸売</h3></div>
+    <div class="ind-target">町工場・部品加工・食品加工・地場卸・専門商社 ／ 1〜30名規模</div>
+    <div class="pain-strip">
+      <b>業界背景：</b>製造業の76%がいまだFAX受発注。経理は1人運用が92%で、2026年10月のインボイス改正で追加負担も見えている。ベテランの見積・工程判断が属人化し、若手・外国人材への引継ぎが進まない。
+      <div><span class="stat">FAX受発注76%</span><span class="stat">経理1人運用92%</span><span class="stat">人手不足が経営に影響 56.3%</span></div>
+    </div>
+    <div class="agents">
+      <div class="agent"><div class="num">AGENT 11</div><h4>FAX/PDF注文書 自動投入</h4>
+        <dl class="io"><dt>入力</dt><dd>取引先からのFAX画像／PDF注文書</dd><dt>出力</dt><dd>基幹システム用の受注データ＋確認メール</dd></dl>
+        <div class="effect"><b>期待効果：</b>「FAXやめられない問題」を自社内で解決。手入力とミスが即減る。</div></div>
+      <div class="agent"><div class="num">AGENT 12</div><h4>インボイス2026 駆け込み診断</h4>
+        <dl class="io"><dt>入力</dt><dd>請求書PDF＋取引先一覧</dd><dt>出力</dt><dd>10月以降の追加負担額の試算＋対応リスト</dd></dl>
+        <div class="effect"><b>期待効果：</b>制度改定の影響が金額で見える。経理1人でも先手を打てる。</div></div>
+      <div class="agent"><div class="num">AGENT 13</div><h4>見積・短納期 即出しエージェント</h4>
+        <dl class="io"><dt>入力</dt><dd>図面／仕様メモ＋過去見積Excel</dd><dt>出力</dt><dd>類似案件から単価・納期・粗利を即提示</dd></dl>
+        <div class="effect"><b>期待効果：</b>失注理由トップの「回答遅い」を撲滅。当日回答率が上がる。</div></div>
+      <div class="agent"><div class="num">AGENT 14</div><h4>ものづくり／省力化補助金 申請書ドラフト</h4>
+        <dl class="io"><dt>入力</dt><dd>会社概要＋導入したい設備</dd><dt>出力</dt><dd>事業計画書＋加点項目チェックリスト</dd></dl>
+        <div class="effect"><b>期待効果：</b>採択率30〜60%の補助金を、「書類が書けない」で諦めない。</div></div>
+      <div class="agent"><div class="num">AGENT 15</div><h4>外国人材 多言語手順書ジェネレーター</h4>
+        <dl class="io"><dt>入力</dt><dd>日本語の作業手順メモ・写真</dd><dt>出力</dt><dd>ベトナム語／インドネシア語等の手順書</dd></dl>
+        <div class="effect"><b>期待効果：</b>育成就労制度への切り替えに合わせて、教育の即効薬。</div></div>
+    </div>
+    <div class="ind-cta"><div class="msg"><b>気になったエージェントはありましたか？</b><br>60分の説明会で、実物のデモとあなたの工場・卸での使い方をご案内します。</div><a href="#final-cta">LINEで申し込む →</a></div>
+    <a class="top-link" href="#top">▲ 業種ナビに戻る</a>
+  </section>
+
+  <!-- ============ 04 小売・飲食 ============ -->
+  <section class="industry" data-c="kouri" id="kouri">
+    <div class="ind-head"><span class="ind-badge">04 / KOURI</span><h3 class="ind-name">小売・飲食</h3></div>
+    <div class="ind-target">地域スーパー・専門小売・カフェ／居酒屋／中食／多店舗チェーン ／ 1〜30名規模</div>
+    <div class="pain-strip">
+      <b>業界背景：</b>仕入れ高騰95%＋最低賃金の毎年3〜5%引上げで「値上げしないと赤字」だが計算が属人化。人手不足61.8%、口コミ返信は店長が閉店後に手書き、SNSは続かない。
+      <div><span class="stat">仕入れ上昇95%</span><span class="stat">人手不足 61.8%</span><span class="stat">接客の有効求人倍率 3.59〜4.01倍</span></div>
+    </div>
+    <div class="agents">
+      <div class="agent"><div class="num">AGENT 16</div><h4>口コミ全件「30秒返信」ドラフト</h4>
+        <dl class="io"><dt>入力</dt><dd>Google／食べログ／Hot Pepperの口コミ</dd><dt>出力</dt><dd>星評価別の返信文3案＋タグ分類</dd></dl>
+        <div class="effect"><b>期待効果：</b>店長の夜30分の返信作業が消える。星0.1差の来店増に直結。</div></div>
+      <div class="agent"><div class="num">AGENT 17</div><h4>シフト穴埋め＆人件費アラート</h4>
+        <dl class="io"><dt>入力</dt><dd>シフト表＋ピーク帯売上＋最賃</dd><dt>出力</dt><dd>穴時間リスト＋人件費超過アラート＋ヘルプ募集文</dd></dl>
+        <div class="effect"><b>期待効果：</b>シフト作成3時間→30分。「組み間違いで赤字」を即可視化。</div></div>
+      <div class="agent"><div class="num">AGENT 18</div><h4>値上げ対応 原価率シミュレーター</h4>
+        <dl class="io"><dt>入力</dt><dd>メニューとレシピ＋現在の仕入価格</dd><dt>出力</dt><dd>目標原価率に戻す新価格3案＋告知文</dd></dl>
+        <div class="effect"><b>期待効果：</b>属人化していた値付けが誰でもできる。客離れも抑えられる。</div></div>
+      <div class="agent"><div class="num">AGENT 19</div><h4>Instagram＆チラシ 販促文ジェネレーター</h4>
+        <dl class="io"><dt>入力</dt><dd>本日のおすすめ品の写真1枚＋一言</dd><dt>出力</dt><dd>Instagram投稿文＋GBP＋チラシコピー3案</dd></dl>
+        <div class="effect"><b>期待効果：</b>1投稿5時間→5分。SNS更新が続く体制になる。</div></div>
+      <div class="agent"><div class="num">AGENT 20</div><h4>業務改善助成金 申請下書きアシスタント</h4>
+        <dl class="io"><dt>入力</dt><dd>現在の最賃＋設備投資予定</dd><dt>出力</dt><dd>助成額シミュ＋必要書類＋申請書ドラフト</dd></dl>
+        <div class="effect"><b>期待効果：</b>「賃上げ原資がない」を「国から取り戻す」に変換。</div></div>
+    </div>
+    <div class="ind-cta"><div class="msg"><b>気になったエージェントはありましたか？</b><br>60分の説明会で、実物のデモとあなたの店舗での使い方をご案内します。</div><a href="#final-cta">LINEで申し込む →</a></div>
+    <a class="top-link" href="#top">▲ 業種ナビに戻る</a>
+  </section>
+
+  <!-- ============ 05 医療・介護 ============ -->
+  <section class="industry" data-c="iryou" id="iryou">
+    <div class="ind-head"><span class="ind-badge">05 / IRYOU</span><h3 class="ind-name">医療・介護</h3></div>
+    <div class="ind-target">診療所・歯科クリニック・整骨院・調剤薬局・訪問介護／通所介護 ／ 1〜30名規模</div>
+    <div class="pain-strip">
+      <b>業界背景：</b>訪問介護員の有効求人倍率は<b>15.53倍</b>という極端な人手不足。LIFE提出が6か月→3か月に、運営指導は通知から1か月で全書類準備。クリニックは業務時間の40%が電話予約対応。
+      <div><span class="stat">訪問介護員 有効求人倍率15.53倍</span><span class="stat">電話が受付業務の40%</span><span class="stat">65歳超が現職の4人に1人</span></div>
+    </div>
+    <div class="agents">
+      <div class="agent"><div class="num">AGENT 21</div><h4>ヘルパーシフト 自動組み</h4>
+        <dl class="io"><dt>入力</dt><dd>ヘルパー名簿＋利用者の訪問枠＋地理</dd><dt>出力</dt><dd>1週間分のシフト案＋欠勤時の代替候補</dd></dl>
+        <div class="effect"><b>期待効果：</b>サ責が深夜にExcelで組んでいた作業が、30秒で完了。</div></div>
+      <div class="agent"><div class="num">AGENT 22</div><h4>LIFE提出CSV＋3か月評価リマインダー</h4>
+        <dl class="io"><dt>入力</dt><dd>介護ソフトのケース記録CSV</dd><dt>出力</dt><dd>LIFE様式のCSV＋期限逆算＋未実施リスト</dd></dl>
+        <div class="effect"><b>期待効果：</b>3か月ごとの提出負担が「1画面で見える」化。加算継続が安定。</div></div>
+      <div class="agent"><div class="num">AGENT 23</div><h4>運営指導 1か月前パッケージ生成</h4>
+        <dl class="io"><dt>入力</dt><dd>通知文＋過去1年の記録・契約書</dd><dt>出典</dt><dd>自治体別チェックリスト＋不足書類＋想定問答集</dd></dl>
+        <div class="effect"><b>期待効果：</b>通知から実施まで1か月の準備が、全部段取り済みに。</div></div>
+      <div class="agent"><div class="num">AGENT 24</div><h4>クリニック電話・予約変更AI受付</h4>
+        <dl class="io"><dt>入力</dt><dd>診療時間＋予約ルール＋よくある質問</dd><dt>出力</dt><dd>LINE／Web埋込の24時間予約変更ボット</dd></dl>
+        <div class="effect"><b>期待効果：</b>電話に取られていた業務時間40%が、患者対応に戻る。</div></div>
+      <div class="agent"><div class="num">AGENT 25</div><h4>レセプト事前点検＋算定漏れ警告</h4>
+        <dl class="io"><dt>入力</dt><dd>レセコン出力CSV＋診療科</dd><dt>出力</dt><dd>返戻項目の事前チェック＋算定漏れフラグ</dd></dl>
+        <div class="effect"><b>期待効果：</b>返戻による入金遅延と再請求工数が減る。取りこぼしも防止。</div></div>
+    </div>
+    <div class="ind-cta"><div class="msg"><b>気になったエージェントはありましたか？</b><br>60分の説明会で、実物のデモとあなたの事業所での使い方をご案内します。</div><a href="#final-cta">LINEで申し込む →</a></div>
+    <a class="top-link" href="#top">▲ 業種ナビに戻る</a>
+  </section>
+
+  <!-- ============ 06 運輸・物流 ============ -->
+  <section class="industry" data-c="unyu" id="unyu">
+    <div class="ind-head"><span class="ind-badge">06 / UNYU</span><h3 class="ind-name">運輸・物流</h3></div>
+    <div class="ind-target">トラック運送・引越・宅配・倉庫・3PL ／ 1〜30名規模</div>
+    <div class="pain-strip">
+      <b>業界背景：</b>2024年問題で輸送力14.2%不足、有効求人倍率2.51倍、若年ドライバーは10.1%。配車ベテランの属人化と、荷主に運賃・待機料を交渉できない構造が経営を圧迫。
+      <div><span class="stat">輸送力2024年▲14.2%</span><span class="stat">求人倍率2.51倍</span><span class="stat">待機料回収3〜5割</span></div>
+    </div>
+    <div class="agents">
+      <div class="agent"><div class="num">AGENT 26</div><h4>荷主向け 運賃値上げ交渉レター</h4>
+        <dl class="io"><dt>入力</dt><dd>現行運賃＋燃料単価＋待機実績</dd><dt>出力</dt><dd>値上げ依頼書＋待機料請求根拠＋トークスクリプト</dd></dl>
+        <div class="effect"><b>期待効果：</b>「切られずに値上げを伝える」文書が即完成。取りこぼしを回収。</div></div>
+      <div class="agent"><div class="num">AGENT 27</div><h4>配車ノウハウ 言語化＆引継ぎ</h4>
+        <dl class="io"><dt>入力</dt><dd>ベテラン配車係の音声インタビュー</dd><dt>出力</dt><dd>配車判断ルールブック＋新人向けチェックリスト</dd></dl>
+        <div class="effect"><b>期待効果：</b>「ベテランが倒れたら会社が止まる」を解消。属人化が消える。</div></div>
+      <div class="agent"><div class="num">AGENT 28</div><h4>点呼記録＆運行日報 自動文字起こし</h4>
+        <dl class="io"><dt>入力</dt><dd>点呼時の録音＋アルコール検知器の写真</dd><dt>出力</dt><dd>法令フォーマットの記録簿＋残時間ダッシュボード</dd></dl>
+        <div class="effect"><b>期待効果：</b>紙の点呼簿・違反リスク・監査対応の工数がすべて減る。</div></div>
+      <div class="agent"><div class="num">AGENT 29</div><h4>ドライバー求人原稿＆採用LP生成</h4>
+        <dl class="io"><dt>入力</dt><dd>給与レンジ＋車種＋走行エリア＋社長の想い</dd><dt>出力</dt><dd>媒体別に最適化された求人原稿3種類</dd></dl>
+        <div class="effect"><b>期待効果：</b>「求人出しても来ない」に効く原稿。応募数の差が体感できる。</div></div>
+      <div class="agent"><div class="num">AGENT 30</div><h4>補助金・助成金 一発診断</h4>
+        <dl class="io"><dt>入力</dt><dd>従業員数＋車両台数＋投資予定</dd><dt>出力</dt><dd>使える補助金3案＋申請スケジュール</dd></dl>
+        <div class="effect"><b>期待効果：</b>「知らずに損する」補助金を、日単位で診断。</div></div>
+    </div>
+    <div class="ind-cta"><div class="msg"><b>気になったエージェントはありましたか？</b><br>60分の説明会で、実物のデモとあなたの運送会社での使い方をご案内します。</div><a href="#final-cta">LINEで申し込む →</a></div>
+    <a class="top-link" href="#top">▲ 業種ナビに戻る</a>
+  </section>
+
+  <!-- ============ 07 IT・サービス ============ -->
+  <section class="industry" data-c="it" id="it">
+    <div class="ind-head"><span class="ind-badge">07 / IT</span><h3 class="ind-name">IT・サービス</h3></div>
+    <div class="ind-target">受託開発・Web制作・システム保守・SES・コンサル ／ 1〜30名規模</div>
+    <div class="pain-strip">
+      <b>業界背景：</b>内製化トレンドと生成AI普及で「工数×単価」モデルが崩れつつある。提案書・要件定義に工期の20%、保守は問い合わせで一日が終わる。ナレッジは属人化。
+      <div><span class="stat">ソフトウェア業者倒産220件（過去10年最多）</span><span class="stat">大企業の内製化率59.1%</span><span class="stat">要件定義に工期の20%</span></div>
+    </div>
+    <div class="agents">
+      <div class="agent"><div class="num">AGENT 31</div><h4>提案書・要件定義書 ドラフト自動生成</h4>
+        <dl class="io"><dt>入力</dt><dd>ヒアリングメモ＋過去のRFP＋予算感</dd><dt>出力</dt><dd>提案書一式＋要件定義書ドラフト</dd></dl>
+        <div class="effect"><b>期待効果：</b>無償で書いていた提案書工数が利益に変わる。</div></div>
+      <div class="agent"><div class="num">AGENT 32</div><h4>見積・工数 自動算出（類似案件ベース）</h4>
+        <dl class="io"><dt>入力</dt><dd>要件メモ＋技術スタック＋過去実績CSV</dd><dt>出力</dt><dd>機能別人日見積＋価格レンジ＋リスク係数</dd></dl>
+        <div class="effect"><b>期待効果：</b>「根拠なき見積」でのデスマーチを撲滅。粗利が守れる。</div></div>
+      <div class="agent"><div class="num">AGENT 33</div><h4>問い合わせ・障害一次対応AI</h4>
+        <dl class="io"><dt>入力</dt><dd>顧客メール／Slack＋FAQ＋構成メモ</dd><dt>出力</dt><dd>一次回答＋チケット起票文＋エスカレ判定</dd></dl>
+        <div class="effect"><b>期待効果：</b>「問い合わせで一日が終わる」保守チームに時間が戻る。</div></div>
+      <div class="agent"><div class="num">AGENT 34</div><h4>週次進捗レポート 自動生成</h4>
+        <dl class="io"><dt>入力</dt><dd>Backlog／Jira＋Git履歴＋稼働メモ</dd><dt>出力</dt><dd>クライアント提出用の週次レポート＋社内要約</dd></dl>
+        <div class="effect"><b>期待効果：</b>PM／PLの金曜夜がなくなる。</div></div>
+      <div class="agent"><div class="num">AGENT 35</div><h4>IT導入補助金 申請書ドラフト（支援事業者向け）</h4>
+        <dl class="io"><dt>入力</dt><dd>顧客の業種・規模・課題ヒアリング</dd><dt>出力</dt><dd>事業計画パート＋加点項目チェックリスト</dd></dl>
+        <div class="effect"><b>期待効果：</b>採択率60〜80%の補助金経由で受注が増える。</div></div>
+    </div>
+    <div class="ind-cta"><div class="msg"><b>気になったエージェントはありましたか？</b><br>60分の説明会で、実物のデモとあなたの受託／SES業務での使い方をご案内します。</div><a href="#final-cta">LINEで申し込む →</a></div>
+    <a class="top-link" href="#top">▲ 業種ナビに戻る</a>
+  </section>
+
+  <!-- ============ 08 宿泊・観光 ============ -->
+  <section class="industry" data-c="shukuhaku" id="shukuhaku">
+    <div class="ind-head"><span class="ind-badge">08 / SHUKUHAKU</span><h3 class="ind-name">宿泊・観光</h3></div>
+    <div class="ind-target">地方旅館・ビジネスホテル・ペンション・観光バス・お土産店 ／ 1〜30名規模</div>
+    <div class="pain-strip">
+      <b>業界背景：</b>訪日4,268万人・消費9.5兆円の追い風だが、離職率26.6%＋OTA手数料15〜22%＋多言語対応の遅れ＋2026年宿泊税ラッシュで、経営は複雑化。
+      <div><span class="stat">訪日客 4,268万人</span><span class="stat">離職率 26.6%</span><span class="stat">OTA実質手数料 15〜22%</span></div>
+    </div>
+    <div class="agents">
+      <div class="agent"><div class="num">AGENT 36</div><h4>マルチOTA 口コミ一括返信</h4>
+        <dl class="io"><dt>入力</dt><dd>じゃらん／楽天／Google／一休の口コミ</dd><dt>出力</dt><dd>OTA形式に最適化された返信（日英中韓）＋週次サマリ</dd></dl>
+        <div class="effect"><b>期待効果：</b>支配人の週10時間の事務が消える。評価と予約が伸びる。</div></div>
+      <div class="agent"><div class="num">AGENT 37</div><h4>OTA在庫・料金 ミス検知アラート</h4>
+        <dl class="io"><dt>入力</dt><dd>サイトコントローラー／各OTAのCSV</dd><dt>出力</dt><dd>不整合レポート＋Chatwork／LINE通知</dd></dl>
+        <div class="effect"><b>期待効果：</b>売り損ね／売り過ぎ事故を防ぐ。逸失利益が可視化される。</div></div>
+      <div class="agent"><div class="num">AGENT 38</div><h4>訪日外国人 多言語チャット＋事前メール</h4>
+        <dl class="io"><dt>入力</dt><dd>館内ルール＋周辺情報＋チェックイン手順</dd><dt>出力</dt><dd>英中韓のWebチャット＋予約後の多言語メール</dd></dl>
+        <div class="effect"><b>期待効果：</b>英語対応スタッフを雇わず、直前離脱を防げる。</div></div>
+      <div class="agent"><div class="num">AGENT 39</div><h4>清掃シフト＆客室稼働 最適化</h4>
+        <dl class="io"><dt>入力</dt><dd>PMS／予約一覧＋清掃スタッフ稼働</dd><dt>出力</dt><dd>清掃ルート＋人員配置＋優先順位</dd></dl>
+        <div class="effect"><b>期待効果：</b>チェックイン遅延が週3〜4件→週0〜1件に減る。</div></div>
+      <div class="agent"><div class="num">AGENT 40</div><h4>観光・省力化補助金 マッチング</h4>
+        <dl class="io"><dt>入力</dt><dd>施設規模＋所在自治体＋投資計画</dd><dt>出力</dt><dd>使える補助金＋申請スケジュール</dd></dl>
+        <div class="effect"><b>期待効果：</b>「AI導入も補助金で半額」の追い風を、確実に取りに行く。</div></div>
+    </div>
+    <div class="ind-cta"><div class="msg"><b>気になったエージェントはありましたか？</b><br>60分の説明会で、実物のデモとあなたの宿での使い方をご案内します。</div><a href="#final-cta">LINEで申し込む →</a></div>
+    <a class="top-link" href="#top">▲ 業種ナビに戻る</a>
+  </section>
+
+  <!-- ============ 09 教育・学習塾 ============ -->
+  <section class="industry" data-c="kyouiku" id="kyouiku">
+    <div class="ind-head"><span class="ind-badge">09 / KYOUIKU</span><h3 class="ind-name">教育・学習塾</h3></div>
+    <div class="ind-target">地域学習塾・予備校・英会話・プログラミング・個別指導 ／ 1〜30名規模</div>
+    <div class="pain-strip">
+      <b>業界背景：</b>退塾理由No.1は「保護者への報告不足」。月1面談すら13.5%しかない中、講師採用難＋人件費高騰＋通信制高校拡大で「集客できる塾だけが伸びる」二極化。
+      <div><span class="stat">保護者連絡56.5%が持ち帰りプリント</span><span class="stat">月1面談ある塾13.5%</span><span class="stat">講師採用難47%</span></div>
+    </div>
+    <div class="agents">
+      <div class="agent"><div class="num">AGENT 41</div><h4>保護者向け 指導報告書 自動生成</h4>
+        <dl class="io"><dt>入力</dt><dd>講師の30秒音声メモ＋生徒名</dd><dt>出力</dt><dd>LINE送信形式の指導報告書＋月次サマリ</dd></dl>
+        <div class="effect"><b>期待効果：</b>退塾理由No.1が消える。月謝×退塾減で投資回収が見える。</div></div>
+      <div class="agent"><div class="num">AGENT 42</div><h4>体験申込→入塾 自動フォロー＆面談台本</h4>
+        <dl class="io"><dt>入力</dt><dd>体験申込＋体験後の所感</dd><dt>出力</dt><dd>翌日LINEフォロー＋面談台本＋追客文</dd></dl>
+        <div class="effect"><b>期待効果：</b>「面談がベテランしかできない」を、新人室長でも回せる形に。</div></div>
+      <div class="agent"><div class="num">AGENT 43</div><h4>退塾予兆検知＆引き留め提案</h4>
+        <dl class="io"><dt>入力</dt><dd>出席・宿題・小テスト・連絡頻度</dd><dt>出力</dt><dd>リスクスコア＋声かけ台本＋面談提案文</dd></dl>
+        <div class="effect"><b>期待効果：</b>1人退塾防止＝年24〜36万円の売上保全。</div></div>
+      <div class="agent"><div class="num">AGENT 44</div><h4>MEO口コミ＆チラシ→LINE誘導 一括生成</h4>
+        <dl class="io"><dt>入力</dt><dd>Google口コミ／配布エリア＋キャンペーン</dd><dt>出力</dt><dd>返信文／チラシコピー／Instagram投稿文</dd></dl>
+        <div class="effect"><b>期待効果：</b>塾長が一人で回す集客が、AIで肩代わりされる。</div></div>
+      <div class="agent"><div class="num">AGENT 45</div><h4>講師シフト＆採用応募 自動対応</h4>
+        <dl class="io"><dt>入力</dt><dd>講師の指導可能枠／応募者情報</dd><dt>出力</dt><dd>シフト案＋面接日程提案メール</dd></dl>
+        <div class="effect"><b>期待効果：</b>応募対応速度＝採用率という構造に効く。</div></div>
+    </div>
+    <div class="ind-cta"><div class="msg"><b>気になったエージェントはありましたか？</b><br>60分の説明会で、実物のデモとあなたの塾での使い方をご案内します。</div><a href="#final-cta">LINEで申し込む →</a></div>
+    <a class="top-link" href="#top">▲ 業種ナビに戻る</a>
+  </section>
+
+  <!-- ============ 10 美容・理美容 ============ -->
+  <section class="industry" data-c="biyou" id="biyou">
+    <div class="ind-head"><span class="ind-badge">10 / BIYOU</span><h3 class="ind-name">美容・理美容</h3></div>
+    <div class="ind-target">サロン・エステ・ネイル・整体（多店舗・FC・地域チェーン） ／ 1〜30名規模</div>
+    <div class="pain-strip">
+      <b>業界背景：</b>2025年の美容室倒産は<b>235件で過去最多</b>。1年目離職率50%、リピート率30%（新規の7割が再来しない）、店販比率5%と伸びない。口コミ返信・SNS投稿の運用工数も慢性課題。
+      <div><span class="stat">倒産235件（過去最多）</span><span class="stat">1年目離職50%</span><span class="stat">3ヶ月リピート率30%</span></div>
+    </div>
+    <div class="agents">
+      <div class="agent"><div class="num">AGENT 46</div><h4>口コミ返信 ドラフト自動生成</h4>
+        <dl class="io"><dt>入力</dt><dd>Hot Pepper／Googleの口コミ＋トーン</dd><dt>出力</dt><dd>個別エピソードを織り込んだ返信3案</dd></dl>
+        <div class="effect"><b>期待効果：</b>閉店後30分の作業がほぼゼロ。定型コピペの「逆効果返信」を卒業。</div></div>
+      <div class="agent"><div class="num">AGENT 47</div><h4>Instagram投稿＆ハッシュタグ 一括生成</h4>
+        <dl class="io"><dt>入力</dt><dd>スタイル写真＋施術メニュー＋客層</dd><dt>出力</dt><dd>キャプション＋ハッシュタグ20〜30個＋リール台本</dd></dl>
+        <div class="effect"><b>期待効果：</b>「毎日投稿が続かない」を解決。集客に効くリズムになる。</div></div>
+      <div class="agent"><div class="num">AGENT 48</div><h4>カウンセリング記録→追客LINE</h4>
+        <dl class="io"><dt>入力</dt><dd>カウンセリング音声＋来店履歴＋施術</dd><dt>出力</dt><dd>カルテサマリ＋次回提案＋追客LINE</dd></dl>
+        <div class="effect"><b>期待効果：</b>リピート率30%→50%へ。売上直結KPIに効く。</div></div>
+      <div class="agent"><div class="num">AGENT 49</div><h4>店販 レコメンド＆トークスクリプト</h4>
+        <dl class="io"><dt>入力</dt><dd>顧客カルテ＋当日の施術内容</dd><dt>出力</dt><dd>提案商品TOP3＋押し売り感のないトーク</dd></dl>
+        <div class="effect"><b>期待効果：</b>店販5%→10%で年間数百万円の粗利改善。</div></div>
+      <div class="agent"><div class="num">AGENT 50</div><h4>多店舗 週次ダッシュボード</h4>
+        <dl class="io"><dt>入力</dt><dd>POS CSV＋シフト＋スタイリスト勤続</dd><dt>出力</dt><dd>指名集中・離職リスク・売上要因分解</dd></dl>
+        <div class="effect"><b>期待効果：</b>「データはあるが見ていない」を解消。労務倒産の予兆を潰す。</div></div>
+    </div>
+    <div class="ind-cta"><div class="msg"><b>気になったエージェントはありましたか？</b><br>60分の説明会で、実物のデモとあなたのサロンでの使い方をご案内します。</div><a href="#final-cta">LINEで申し込む →</a></div>
+    <a class="top-link" href="#top">▲ 業種ナビに戻る</a>
+  </section>
+
+  <!-- ============ 11 広告・PR・印刷 ============ -->
+  <section class="industry" data-c="koukoku" id="koukoku">
+    <div class="ind-head"><span class="ind-badge">11 / KOUKOKU</span><h3 class="ind-name">広告・PR・印刷</h3></div>
+    <div class="ind-target">地域広告代理店・印刷会社・販促企画・デザイン事務所・映像制作 ／ 1〜30名規模</div>
+    <div class="pain-strip">
+      <b>業界背景：</b>売上ピーク比3割減、印刷業の廃業は過去最多230件。営業・マーケが業界最大課題（62.8%）で、コンペ提案書に1件3〜5営業日、1文字ミスで刷り直しの校正リスクも。
+      <div><span class="stat">廃業230件（過去最多）</span><span class="stat">売上ピーク比▲3割</span><span class="stat">営業マーケが最大課題62.8%</span></div>
+    </div>
+    <div class="agents">
+      <div class="agent"><div class="num">AGENT 51</div><h4>コンペ提案書 ドラフト生成</h4>
+        <dl class="io"><dt>入力</dt><dd>RFP／ヒアリングメモ＋自社事例</dd><dt>出力</dt><dd>PowerPoint構成案20〜30枚＋コピー3案</dd></dl>
+        <div class="effect"><b>期待効果：</b>1案件3〜5日の提案書工数が、半日で完成。</div></div>
+      <div class="agent"><div class="num">AGENT 52</div><h4>入稿前 データ・原稿一括校正</h4>
+        <dl class="io"><dt>入力</dt><dd>InDesign／Illustrator PDF＋原稿</dd><dt>出力</dt><dd>13項目チェックの差分レポート</dd></dl>
+        <div class="effect"><b>期待効果：</b>1文字ミス＝数十万円の刷り直しを、次の入稿から止められる。</div></div>
+      <div class="agent"><div class="num">AGENT 53</div><h4>キャッチコピー＋バナー文言 量産</h4>
+        <dl class="io"><dt>入力</dt><dd>商品概要＋ターゲット＋媒体＋訴求軸</dd><dt>出力</dt><dd>媒体別コピー30案＋A/Bテスト用バリエ</dd></dl>
+        <div class="effect"><b>期待効果：</b>3日かかっていたバナー制作が数分。受注率が上がる。</div></div>
+      <div class="agent"><div class="num">AGENT 54</div><h4>小規模事業者持続化補助金 申請ドラフト</h4>
+        <dl class="io"><dt>入力</dt><dd>クライアントの概要＋販路開拓施策</dd><dt>出力</dt><dd>経営計画書＋補助事業計画書ドラフト</dd></dl>
+        <div class="effect"><b>期待効果：</b>採択率60〜70%の補助金経由で、HP／チラシ／看板の受注が増える。</div></div>
+      <div class="agent"><div class="num">AGENT 55</div><h4>並走案件 進行ダッシュボード</h4>
+        <dl class="io"><dt>入力</dt><dd>案件タスク＋メール／Chatwork＋納期</dd><dt>出力</dt><dd>週次進捗＋遅延アラート＋アサイン負荷</dd></dl>
+        <div class="effect"><b>期待効果：</b>ディレクター1人5〜10案件の炎上を、予兆で止められる。</div></div>
+    </div>
+    <div class="ind-cta"><div class="msg"><b>気になったエージェントはありましたか？</b><br>60分の説明会で、実物のデモとあなたの代理店／制作会社での使い方をご案内します。</div><a href="#final-cta">LINEで申し込む →</a></div>
+    <a class="top-link" href="#top">▲ 業種ナビに戻る</a>
+  </section>
+
+  <!-- ============ 12 障害福祉 ============ -->
+  <section class="industry" data-c="shougaifukushi" id="shougaifukushi">
+    <div class="ind-head"><span class="ind-badge">12 / SHOUGAI-FUKUSHI</span><h3 class="ind-name">障害福祉</h3></div>
+    <div class="ind-target">グループホーム・就労B型／A型・生活介護・放デイ・児発・相談支援 ／ 1〜30名規模</div>
+    <div class="pain-strip">
+      <b>業界背景：</b>サビ管・児発管の欠如は基本報酬▲30〜50%の重大リスク。個別支援計画は6か月ごとの専管業務、処遇改善加算は「事務が重くて取れない」事業所多数。運営指導は3年に1回・通知から1か月で全書類。
+      <div><span class="stat">欠如減算 最大▲50%</span><span class="stat">1人で30〜60名の計画作成</span><span class="stat">B型平均工賃 月23,053円</span></div>
+    </div>
+    <div class="agents">
+      <div class="agent"><div class="num">AGENT 56</div><h4>個別支援計画＆モニタリング 下書き</h4>
+        <dl class="io"><dt>入力</dt><dd>アセスメントメモ＋前回計画＋ケース記録</dd><dt>出力</dt><dd>ニーズ整理＋目標＋モニタリング＋家族説明版</dd></dl>
+        <div class="effect"><b>期待効果：</b>サビ管の「1人で30〜60名分」が翌週から回るようになる。</div></div>
+      <div class="agent"><div class="num">AGENT 57</div><h4>運営指導 まるごと事前準備</h4>
+        <dl class="io"><dt>入力</dt><dd>指導通知＋事業種別＋自治体名</dd><dt>出力</dt><dd>チェックリスト＋書類ドラフト＋想定問答集</dd></dl>
+        <div class="effect"><b>期待効果：</b>通知から1か月で準備が全部段取り済みに。指定取消リスクを回避。</div></div>
+      <div class="agent"><div class="num">AGENT 58</div><h4>処遇改善加算 区分アップ＆届出</h4>
+        <dl class="io"><dt>入力</dt><dd>現在の区分＋職員構成＋研修状況</dd><dt>出力</dt><dd>ギャップ表＋届出書類＋増収シミュ</dd></dl>
+        <div class="effect"><b>期待効果：</b>「書類が重くて低い区分で放置」を脱却。収益が直接増える。</div></div>
+      <div class="agent"><div class="num">AGENT 59</div><h4>ケース記録＆ヒヤリハット 要約</h4>
+        <dl class="io"><dt>入力</dt><dd>職員手書きメモ＋送迎時の気づき</dd><dt>出力</dt><dd>5W1H記録＋ヒヤリハット様式＋月次傾向</dd></dl>
+        <div class="effect"><b>期待効果：</b>夜の記録残業が減る。虐待防止・身体拘束の減算リスクも潰す。</div></div>
+      <div class="agent"><div class="num">AGENT 60</div><h4>B型工賃向上＆作業マッチング</h4>
+        <dl class="io"><dt>入力</dt><dd>作業種目＋利用者プロファイル＋工賃</dd><dt>出力</dt><dd>工賃向上計画＋営業ピッチ＋マッチング案</dd></dl>
+        <div class="effect"><b>期待効果：</b>工賃UP＝報酬区分UPで、二重に増収。</div></div>
+    </div>
+    <div class="ind-cta"><div class="msg"><b>気になったエージェントはありましたか？</b><br>60分の説明会で、実物のデモとあなたの事業所での使い方をご案内します。</div><a href="#final-cta">LINEで申し込む →</a></div>
+    <a class="top-link" href="#top">▲ 業種ナビに戻る</a>
+  </section>
+
+  <!-- ===== About GIFT ===== -->
+  <section class="about">
+    <h2>GIFT について</h2>
+    <p>GIFT は、中小企業経営者の「AIが便利なのは分かった。でも、うちで何に使えばいいの？」に答える会社です。</p>
+    <ul>
+      <li><b>現場ペインから逆算</b>：業界データと実務ヒアリングで「明日から効く」領域だけを商品化</li>
+      <li><b>自社実証済み</b>：GIFT自身がAIハーネスで業務を回しています。売る前に自分で使う</li>
+      <li><b>有人サポート</b>：AI導入後の定着まで、人が伴走します</li>
+    </ul>
+  </section>
+
+  <!-- ===== Final CTA ===== -->
+  <section class="final-cta" id="final-cta">
+    <h3>60分の説明会で、実物をご案内します</h3>
+    <p>気になったAIエージェントを、あなたの業務に合わせてデモします。オンラインで完結、費用はかかりません。</p>
+    <a href="__LINE_URL_PLACEHOLDER__" target="_blank" rel="noopener">LINEで説明会を申し込む →</a>
+  </section>
+
+  <footer>GIFT AIエージェント カタログ ／ 中小企業向け 業種別ソリューション<br>© GIFT株式会社</footer>
+</div>
+
+</body>
+</html>
