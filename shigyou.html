@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>税理士事務所のための AIエージェント｜GIFT</title>
+<meta name="description" content="税理士事務所の「即答質問・補助金提案・法改正案内・新規受任・新人育成」を支える5つのAIエージェントを無料配布。60分のオンライン説明会で、事務所に合わせてお渡しします。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="税理士事務所のための AIエージェント｜GIFT">
+<meta property="og:description" content="所長の時間を奪う5大業務を支えるAIエージェントを、無料でお渡しします。受け取りは60分のオンライン説明会で。">
+<meta property="og:url" content="https://aoyama-gift.github.io/gift-ai-agents-catalog/shigyou.html">
+<meta property="og:image" content="https://aoyama-gift.github.io/gift-ai-agents-catalog/hero-bg.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:,">
+<script>document.documentElement.classList.add('js');</script>
 <style>
 :root{
   --ink:#0a0e2b;
@@ -64,9 +73,13 @@ h3{font-size:32px;}
 p{color:var(--sub);}
 .lead{font-size:22px;line-height:1.65;color:var(--sub);margin-top:26px;max-width:680px;}
 
-/* Reveal on scroll */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1);}
-.reveal.in{opacity:1;transform:translateY(0);}
+/* Reveal on scroll (JSが有効な時だけ演出。無効時・印刷時は常時表示) */
+html.js .reveal{opacity:0;transform:translateY(28px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1);}
+html.js .reveal.in{opacity:1;transform:translateY(0);}
+@media print{
+  html.js .reveal{opacity:1 !important;transform:none !important;}
+  .nav{position:static;}
+}
 .reveal.d1{transition-delay:.08s;} .reveal.d2{transition-delay:.2s;} .reveal.d3{transition-delay:.32s;} .reveal.d4{transition-delay:.44s;} .reveal.d5{transition-delay:.56s;}
 
 /* ===== HERO (left-aligned like Stripe) ===== */
@@ -157,6 +170,31 @@ p{color:var(--sub);}
 .final .foot{color:rgba(255,255,255,.4);font-size:13px;margin-top:28px;}
 
 footer{background:#000;color:rgba(255,255,255,.4);font-size:12.5px;text-align:center;padding:32px 24px;}
+
+.stats-note{color:var(--muted);font-size:12px;margin-top:20px;line-height:1.7;}
+
+/* ===== Mobile ===== */
+@media(max-width:900px){
+  .section{padding:90px 20px 80px;}
+  .hero{min-height:auto;padding-top:120px;padding-bottom:70px;}
+  .hero h1,h1{font-size:44px;line-height:1.15;}
+  h2,.problem h2{font-size:34px;}
+  .pair-q h2{font-size:29px;}
+  h3,.pair-a h3{font-size:22px;}
+  .hero-sub{font-size:17px;margin-top:20px;}
+  .lead,.problem .lead,.free-banner .lead,.final .lead{font-size:16.5px;}
+  .free-banner h2,.final h2{font-size:36px;}
+  .stat .num{font-size:42px;}
+  .stat .num small{font-size:19px;}
+  .stats{margin-top:40px;gap:14px;}
+  .pair{padding:84px 20px;}
+  .problem{padding:96px 20px;}
+  .hero-cta-row{margin-top:30px;}
+  .swoop-bg img{opacity:.16;max-width:100%;}
+  .swoop-bg.small img{opacity:.14;}
+  .section-count{top:32px;left:20px;}
+  .final .btn-line{font-size:15.5px;padding:16px 28px;}
+}
 </style>
 </head>
 <body>
@@ -180,7 +218,7 @@ footer{background:#000;color:rgba(255,255,255,.4);font-size:12.5px;text-align:ce
       <div class="hero-text">
         <span class="free-tag reveal"><span class="dot"></span>FOR 士業 · 完全無料配布</span>
         <h1 class="reveal d1">税理士事務所のための、<span class="accent">AIエージェント。</span></h1>
-        <p class="hero-sub reveal d2">顧問先の質問に、深夜まで答えていませんか？<br>5つのエージェントを、無料でお渡しします。</p>
+        <p class="hero-sub reveal d2">顧問先の質問対応で、所長の一日が終わる。<br>その反復業務を引き取る5つのエージェントを、無料でお渡しします。</p>
         <div class="hero-cta-row reveal d3">
           <a class="btn-primary" href="#final">無料で受け取る →</a>
           <a class="btn-secondary" href="#p1">エージェントを見る ↓</a>
@@ -203,14 +241,15 @@ footer{background:#000;color:rgba(255,255,255,.4);font-size:12.5px;text-align:ce
         <div class="lbl">顧問先が事務負担増を実感<br>（インボイス導入後）</div>
       </div>
       <div class="stat reveal d2">
-        <div class="num">50<small>h/月</small></div>
-        <div class="lbl">所長の平均残業時間<br>（一般企業の3〜4倍）</div>
+        <div class="num">50<small>〜60h/月</small></div>
+        <div class="lbl">繁忙期の残業時間（会計事務所業界）<br>23.3%は月80時間超</div>
       </div>
       <div class="stat reveal d3">
         <div class="num">2.31<small>倍</small></div>
         <div class="lbl">税理士 有効求人倍率<br>（人を増やせない）</div>
       </div>
     </div>
+    <p class="stats-note reveal d4">※ 出典：東京商工会議所・日本商工会議所のインボイス対応調査（2024年9月・n=3,149）ほか業界公開調査。詳細は説明会でご提示します。</p>
   </div>
 </section>
 
@@ -221,8 +260,8 @@ footer{background:#000;color:rgba(255,255,255,.4);font-size:12.5px;text-align:ce
     <div class="pair-q reveal">
       <div class="eyebrow">課題 01</div>
       <h2><span class="grad-text">「これって経費？」</span><br>この質問、月に何回来ますか？</h2>
-      <p class="desc">メール・LINE・Chatworkから、顧問先の即答質問が毎日届く。事務所トーンで返信を書くのは所長本人。夜9時、また1件、また1件。</p>
-      <div class="metric">月20時間以上を、この対応に取られている試算</div>
+      <p class="desc">メール・LINE・Chatworkから、顧問先の即答質問が毎日届く。事務所トーンで返信を書けるのは所長本人だけ。件数は繁忙期ほど増える。</p>
+      <div class="metric">月20時間以上を、この対応に取られている試算（当社リサーチより）</div>
     </div>
     <div class="pair-a reveal d2">
       <span class="agent-tag"><span class="spark">⚡</span>AGENT 01</span>
@@ -244,7 +283,7 @@ footer{background:#000;color:rgba(255,255,255,.4);font-size:12.5px;text-align:ce
     <div class="pair-q reveal">
       <div class="eyebrow">課題 02</div>
       <h2><span class="grad-text">「補助金、うちで使えるの？」</span><br>顧問先から期待される。追いつかない。</h2>
-      <p class="desc">建設業だけで補助金10種。IT導入 最大450万、省力化最大1億。提案できれば差別化、できなければ離反。本業の合間ではキャッチアップしきれない。</p>
+      <p class="desc">IT導入・省力化・事業再構築——顧問先の業種ごとに使える制度は毎月入れ替わる。提案できれば差別化、できなければ離反。本業の合間ではキャッチアップしきれない。</p>
       <div class="metric">「提案できる税理士」でいるための情報整理を代替</div>
     </div>
     <div class="pair-a reveal d2">
@@ -266,14 +305,14 @@ footer{background:#000;color:rgba(255,255,255,.4);font-size:12.5px;text-align:ce
   <div class="pair-inner">
     <div class="pair-q reveal">
       <div class="eyebrow">課題 03</div>
-      <h2>改正のたびに、<br><span class="grad-text">深夜まで案内文</span>を<br>手書きしていませんか？</h2>
-      <p class="desc">インボイス、電帳法、新NISA、社保改正、定額減税、年収の壁——毎回、全顧問先向けに案内文を書き分ける。所長の徹夜が、また1つ。</p>
+      <h2>改正が出るたび、<br><span class="grad-text">案内文は全顧問先分</span>。</h2>
+      <p class="desc">インボイス、電帳法、新NISA、社保改正、定額減税、年収の壁——毎回、全顧問先向けに書き分ける。その多くが所長の深夜作業になっている。</p>
       <div class="metric">改正のたびの案内作業を、A4 1枚に自動化</div>
     </div>
     <div class="pair-a reveal d2">
       <span class="agent-tag"><span class="spark">⚡</span>AGENT 03</span>
       <h3>法改正 顧問先別 解説書ジェネレーター</h3>
-      <p class="agent-desc">顧問先の属性を登録しておくだけで、直近の改正が「この顧問先にどう影響するか／何をいつまでに／所長として何を案内すべきか」のA4 1枚にまとまります。改正のたびの徹夜が消えます。</p>
+      <p class="agent-desc">顧問先の属性を登録しておくだけで、直近の改正が「この顧問先にどう影響するか／何をいつまでに／所長として何を案内すべきか」のA4 1枚にまとまります。改正のたびの書き分け作業を大きく減らせます。</p>
       <div class="io">
         <div class="row"><div class="k">INPUT</div><div class="v">顧問先の属性（個人/法人・業種・給与水準・課税方式）</div></div>
         <div class="row"><div class="k">OUTPUT</div><div class="v">顧問先別の改正インパクト解説書（A4 1枚）</div></div>
@@ -289,7 +328,7 @@ footer{background:#000;color:rgba(255,255,255,.4);font-size:12.5px;text-align:ce
   <div class="pair-inner">
     <div class="pair-q reveal">
       <div class="eyebrow">課題 04</div>
-      <h2>繁忙期に、<br><span class="grad-text">新規受任</span>が<br>止まっていませんか？</h2>
+      <h2>繁忙期、<br><span class="grad-text">新規受任</span>は止まる。</h2>
       <p class="desc">新規受任は所長本人が動かざるを得ない。でも繁忙期は完全に止まる。機会損失は月単位で積み上がっていく。</p>
       <div class="metric">面談 → カルテ → 見積 → 契約書、を自動で下書き</div>
     </div>
@@ -312,8 +351,8 @@ footer{background:#000;color:rgba(255,255,255,.4);font-size:12.5px;text-align:ce
   <div class="pair-inner">
     <div class="pair-q reveal">
       <div class="eyebrow">課題 05</div>
-      <h2>新人の育成に、<br><span class="grad-text">所長が張り付いて</span><br>いませんか？</h2>
-      <p class="desc">採用難で若手が入っても、育成には所長の時間が必要。若手は早期離職、所長は疲弊。三重苦の現実。</p>
+      <h2>新人が入る。<br><span class="grad-text">所長が教える</span>。<br>また辞める。</h2>
+      <p class="desc">採用難でようやく入った若手も、育成には所長の時間が要る。若手の早期離職と所長の疲弊が、同時に進んでいく。</p>
       <div class="metric">「所長スタイル」の添削と、次に学ぶべきテーマの提示を代替</div>
     </div>
     <div class="pair-a reveal d2">
@@ -338,7 +377,7 @@ footer{background:#000;color:rgba(255,255,255,.4);font-size:12.5px;text-align:ce
     <div class="eyebrow reveal">EVERYTHING · FOR FREE</div>
     <h2 class="reveal d1">この <span class="grad-gold">5つ全部</span>、<br>無料で受け取れます。</h2>
     <p class="lead reveal d2">60分の説明会で、あなたの事務所に合わせてカスタマイズしてお渡しします。<br>費用はかかりません。オンラインで完結します。</p>
-    <p class="note reveal d3">※ 気に入ったエージェントを1つ選んでいただいても、全部受け取っていただいてもOKです。</p>
+    <p class="note reveal d3">※ 気に入ったエージェントを1つ選んでいただいても、全部受け取っていただいてもOKです。<br>※ なぜ無料か：導入後に伴走支援（有料）をご希望いただく事務所があるためです。エージェント本体の費用は一切かかりません。</p>
   </div>
 </section>
 
@@ -347,7 +386,7 @@ footer{background:#000;color:rgba(255,255,255,.4);font-size:12.5px;text-align:ce
   <div class="container">
     <div class="eyebrow reveal">GET STARTED</div>
     <h2 class="reveal d1">受け取り方は<br><span class="em">たった1つ。</span></h2>
-    <p class="lead reveal d2">LINE公式アカウントから「60分説明会」を予約してください。<br>あなたの事務所の状況をヒアリングし、その場でエージェントをお渡しします。</p>
+    <p class="lead reveal d2">LINE公式アカウントから「60分説明会」を予約してください。<br>事務所の状況を伺い、効きそうなエージェントをその場で事務所仕様に設定してお渡しします。</p>
     <a class="btn-line reveal d3" href="__LINE_URL__" target="_blank" rel="noopener">
       <span class="ic">L</span>LINEで無料説明会を予約する
     </a>
@@ -362,6 +401,15 @@ const io = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); }});
 },{threshold:0.15});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// LINE URL が未設定の間は、リンク切れ(404)に飛ばさない
+const lineBtn = document.querySelector('.btn-line');
+if(lineBtn && lineBtn.getAttribute('href').indexOf('LINE_URL') !== -1){
+  lineBtn.addEventListener('click', (e)=>{
+    e.preventDefault();
+    alert('LINE公式アカウントは現在準備中です。公開まで今しばらくお待ちください。');
+  });
+}
 </script>
 </body>
 </html>
