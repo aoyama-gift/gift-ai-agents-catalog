@@ -552,14 +552,17 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
       if(!inner) return;
       const raw = (slide.offsetLeft - track.scrollLeft) / w; // 符号付き: 左へ抜ける/右から来る、を判定
       const progress = Math.min(1, Math.abs(raw));
-      const eased = progress * progress; // ease-in、中央に近いほど変化が緩やか
-      const rotate = -raw * 26; // 進行方向に応じて傾く、3D扉のような動き
-      const scale = 1 - 0.26 * eased;
-      const translateY = eased * 34;
-      const blur = eased * 12;
-      inner.style.transform = 'perspective(1400px) rotateY(' + rotate.toFixed(2) + 'deg) scale(' + scale.toFixed(3) + ') translateY(' + translateY.toFixed(1) + 'px)';
+      const dir = raw >= 0 ? 1 : -1;
+      const eased = 1 - Math.pow(1 - progress, 2); // ease-out、動き始めから一気に変化する
+      const rotate = -raw * 40; // 進行方向に応じて傾く、3D扉のような動き
+      const scale = 1 - 0.38 * eased;
+      const translateX = dir * eased * 70; // 抜けていく方向へ横移動
+      const translateY = eased * 20;
+      const translateZ = -eased * 220; // 奥へ引っ込む・手前に迫ってくる奥行き
+      const blur = eased * 16;
+      inner.style.transform = 'perspective(1100px) translate3d(' + translateX.toFixed(1) + 'px,' + translateY.toFixed(1) + 'px,' + translateZ.toFixed(1) + 'px) rotateY(' + rotate.toFixed(2) + 'deg) scale(' + scale.toFixed(3) + ')';
       inner.style.filter = 'blur(' + blur.toFixed(2) + 'px)';
-      inner.style.opacity = String((1 - 0.8 * eased).toFixed(3));
+      inner.style.opacity = String((1 - 0.9 * eased).toFixed(3));
     });
   }
   function update(){
@@ -577,7 +580,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     const startTime = performance.now();
     // わずかにオーバーシュートしてから収まる、跳ねるような質感
     function easeOutBack(t){
-      const c1 = 1.28, c3 = c1 + 1;
+      const c1 = 1.9, c3 = c1 + 1;
       return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2);
     }
     function step(now){
@@ -591,7 +594,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   }
   function goTo(i){
     i = Math.max(0, Math.min(slides.length - 1, i));
-    animateScrollTo(i * track.clientWidth, 680);
+    animateScrollTo(i * track.clientWidth, 760);
   }
   if(prevBtn) prevBtn.addEventListener('click', () => goTo(currentIndex() - 1));
   if(nextBtn) nextBtn.addEventListener('click', () => goTo(currentIndex() + 1));
