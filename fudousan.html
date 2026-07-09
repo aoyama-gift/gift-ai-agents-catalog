@@ -183,7 +183,8 @@ html.js .reveal.in{opacity:1;transform:translateY(0);}
 .carousel-slide{flex:0 0 100%;scroll-snap-align:start;display:flex;align-items:center;min-height:660px;padding:64px 90px 96px;position:relative;
   will-change:transform,opacity;}
 .carousel-slide.alt{background:var(--paper-2);}
-.carousel-slide .pair-inner{will-change:transform,opacity,filter;transform-style:preserve-3d;}
+.carousel-slide .pair-inner{will-change:transform,opacity,filter;transform-style:preserve-3d;
+  transition:transform .12s ease-out,filter .12s ease-out,opacity .12s ease-out;}
 .carousel-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:10;
   width:52px;height:52px;border-radius:50%;background:#fff;border:1px solid var(--line);
   box-shadow:0 10px 28px rgba(10,14,43,.14);display:flex;align-items:center;justify-content:center;
@@ -552,10 +553,10 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
       const raw = (slide.offsetLeft - track.scrollLeft) / w; // 符号付き: 左へ抜ける/右から来る、を判定
       const progress = Math.min(1, Math.abs(raw));
       const eased = progress * progress; // ease-in、中央に近いほど変化が緩やか
-      const rotate = -raw * 14; // 進行方向に応じて傾く、3D扉のような動き
-      const scale = 1 - 0.16 * eased;
-      const translateY = eased * 22;
-      const blur = eased * 7;
+      const rotate = -raw * 26; // 進行方向に応じて傾く、3D扉のような動き
+      const scale = 1 - 0.26 * eased;
+      const translateY = eased * 34;
+      const blur = eased * 12;
       inner.style.transform = 'perspective(1400px) rotateY(' + rotate.toFixed(2) + 'deg) scale(' + scale.toFixed(3) + ') translateY(' + translateY.toFixed(1) + 'px)';
       inner.style.filter = 'blur(' + blur.toFixed(2) + 'px)';
       inner.style.opacity = String((1 - 0.8 * eased).toFixed(3));
