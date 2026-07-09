@@ -324,7 +324,7 @@ footer{background:#000;color:rgba(255,255,255,.4);font-size:12.5px;text-align:ce
         <p class="agent-note reveal d2"><span class="agent-note-label">AIエージェントとは</span>指示を出すと、代わりに考えて作業まで終わらせてくれるAIです。ChatGPTのような「質問に答えるAI」とは違い、実際の業務を最後まで代行します。</p>
         <div class="hero-cta-row reveal d3">
           <a class="btn-primary" href="#final">無料で受け取る →</a>
-          <a class="btn-secondary" href="#p1">エージェントを見る ↓</a>
+          <a class="btn-secondary" id="view-agents-btn" href="#p1">エージェントを見る ↓</a>
         </div>
       </div>
       <div></div>
@@ -615,6 +615,17 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   window.addEventListener('resize', () => { slides[currentIndex()].scrollIntoView({ inline: 'center', block: 'nearest' }); update(); });
   update();
 })();
+
+// 「エージェントを見る」ボタンは、セクション上端ではなく最初のエージェントカードが
+// 画面の縦中央に来る位置へスクロールする
+const viewAgentsBtn = document.getElementById('view-agents-btn');
+const firstAgentCard = document.querySelector('.carousel-slide');
+if(viewAgentsBtn && firstAgentCard){
+  viewAgentsBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    firstAgentCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+}
 
 // LINE URL が未設定の間は、リンク切れ(404)に飛ばさない
 const lineBtn = document.querySelector('.btn-line');
